@@ -1,0 +1,25 @@
+{
+  "name": "vectorwatch-request",
+  "version": "1.0.0",
+  "description": "A VectorWatch wrapper over request module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VectorWatch/vectorwatch-request.git"
+  },
+  "keywords": [
+    "vectorwatch"
+  ],
+  "author": "radu.vlad@vectorwatch.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VectorWatch/vectorwatch-request/issues"
+  },
+  "homepage": "https://github.com/VectorWatch/vectorwatch-request#readme",
+  "dependencies": {
+    "request": "~2.78.0"
+  }
+}
