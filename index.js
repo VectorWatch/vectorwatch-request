@@ -1,4 +1,4 @@
-var _request = require('request');
+var _request = require('./node_modules/request');
 var util = require('util');
 
 util.inherits(VectorWatchRequest, _request);
@@ -10,12 +10,17 @@ function VectorWatchRequest (uri, options, callback) {
 
   var params = _request.initParams(uri, options, callback)
 
-  if (process.env.BROWSER_PROXY == true) {
+  if (process.env.BROWSER_PROXY != undefined) {
     if (params.headers == undefined) {
       params.headers = {};
     }
     params.headers.ProxyUrl = params.uri;
-    params.uri = "http://localhost:9000/";
+    if (params.headers.Authorization) {
+      params.headers.ProxyAuthorization = params.headers.Authorization;
+    }
+    
+    params.uri = process.env.BROWSER_PROXY.uri;
+    params.headers.Authorization = process.env.BROWSER_PROXY.authHeader;
   }
 
   return _request.call(this, params)
