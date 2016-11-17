@@ -9,7 +9,11 @@ function VectorWatchRequest (uri, options, callback) {
   }
 
   var params = _request.initParams(uri, options, callback)
-
+  if (!params.uri && params.url) {
+    params.uri = params.url
+    delete params.url
+  }
+  
   if (process.env.BROWSER_PROXY != undefined) {
     if (params.headers == undefined) {
       params.headers = {};

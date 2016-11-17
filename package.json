@@ -1,6 +1,6 @@
 {
   "name": "vectorwatch-request",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A VectorWatch wrapper over request module.",
   "main": "index.js",
   "scripts": {
