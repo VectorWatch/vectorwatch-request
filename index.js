@@ -1,5 +1,9 @@
 var _request = require('./node_modules/request');
 var util = require('util');
+var whitelist = ['http://endpoint.vector.watch/VectorCloud/rest/v1/stream/push', 
+'https://endpoint.vector.watch/VectorCloud/rest/v1/stream/push', 
+'http://api.vector.watch/VectorCloud/rest/v1/stream/push',
+'https://api.vector.watch/VectorCloud/rest/v1/stream/push'];
 
 util.inherits(VectorWatchRequest, _request);
 
@@ -14,7 +18,7 @@ function VectorWatchRequest (uri, options, callback) {
     delete params.url
   }
   
-  if (process.env.BROWSER_PROXY != undefined) {
+  if (process.env.BROWSER_PROXY != undefined && whitelist.indexOf(params.uri) == -1) {
     if (params.headers == undefined) {
       params.headers = {};
     }
